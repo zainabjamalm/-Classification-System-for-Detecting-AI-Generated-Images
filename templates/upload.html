@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>upload</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/artificial-intelligence.png')}}" type="icon" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet" />
+    <!-- CSS links -->
+    <link href="{{ url_for('static', filename='css/all.min.css') }}" rel="stylesheet">  
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">  
+    <link href="{{ url_for('static', filename='css/upload.css') }}" rel="stylesheet">  
+</head>
+<body>
+  <!-- Start nav -->
+  <nav class="header pb-5 " id="header">
+    <div class="container">
+      <a href="#" class="logo">
+          <img src="{{ url_for('static', filename='images/logo 1.png') }}" class="w-50" alt="">
+        </a>
+        <ul class="main-nav">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact us</a></li>
+          <li><a href="{{ url_for('about') }}">About us</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End nav -->
+    <div class="container">
+      <div>
+        <h3 class="text-white pb-5">Upload your image</h3>
+      </div>
+
+      <section class="d-flex gap-5 text-white pb-5 flex-wrap text-center">
+        <div class="left col-lg-5 col-md-12 text-center">
+          <div class="drag-drop-area text-white" id="drag-drop-area">
+            <img src="{{ url_for('static', filename='images/Group 1.png')}}" class="w-25 pb-3" alt="">
+            <p>Drag and drop image to upload</p>
+          </div>
+          <div class="preview-area" id="preview-area"></div>
+          
+          <p id="or">OR</p>
+          <form method="post" enctype="multipart/form-data">
+            <label class="upload-btn btn btn-primary" id="upload-label">
+              <input type="file" id="file-input" name="file" multiple accept="image/*">
+              <span>Upload File</span>
+            </label>
+            <button id="check-button" class="btn btn-success mt-3 w-25 m-auto" style="display: none;">Check</button>
+          </form>
+        
+        <div id="message" class="text-danger" style="display: none;">Please select an image</div>
+      </div>
+        <div class="right col-lg-6 col-md-12 align-content-center">
+          <div class="upload-section d-flex flex-column align-items-center gap-3 text-white">
+            <div class="upload-status" id="upload-status" style="display: none;">
+              <div class="file-details">
+                <span id="file-name">image.jpg</span>
+                <span id="file-size">10 MB</span>
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+              <div class="status-icon" id="status-icon">
+                <svg id="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="display: none;">
+                  <path fill="none" d="M0 0h24v24H0z"/>
+                  <path d="M9 16.2l-4.2-4.2-1.4 1.4 5.6 5.6 12-12-1.4-1.4z" fill="green"/>
+                </svg>
+              </div>
+              <button id="cancel-upload" class="btn btn-danger mt-3">Cancel</button>
+            </div>
+            <div>
+              {% if pred %}
+              <h5>
+                RESULT: {{pred}}
+              </h5>
+              {% endif %}
+            </div>
+            <!-- <a href="index.html"><button class="btn btn-primary px-5">Back</button></a> -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+  <!-- Footer -->
+  <footer class="footer mt-auto py-5 bg-dark text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>Satyamstudio</h5>
+          <p><i class="fas fa-map-marker-alt"></i> 8819 Ohio St. South Gate, CA 90280</p>
+          <p><i class="fas fa-envelope"></i> ourstudio@hello.com</p>
+          <p><i class="fas fa-phone"></i> +1 386-688-3295</p>
+        </div>
+        <div class="col-md-2">
+          <h5>Service</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Illustration</a></li>
+            <li><a href="#">Mobile Design</a></li>
+            <li><a href="#">Motion Graphic</a></li>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Development</a></li>
+            <li><a href="#">SEO</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2">
+          <h5>Company</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2">
+          <h5>Our Social Media</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Dribbble</a></li>
+            <li><a href="#">Behance</a></li>
+            <li><a href="#">Medium</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Join a Newsletter</h5>
+          <form>
+            <div class="form-group py-3">
+              <input type="email" class="form-control" placeholder="Enter Your Email">
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}" type="text/javascript"></script> 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="{{ url_for('static', filename='js/upload.js') }}" type="text/javascript"></script> 
+
+</body>
+</html>
