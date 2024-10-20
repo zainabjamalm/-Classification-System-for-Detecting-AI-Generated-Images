@@ -1,0 +1,278 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: #0f172a;
+  --main-color-alt: #4fa7ff;
+  --main-transition: 0.3s;
+  --main-padding-top: 100px;
+  --main-padding-bottom: 100px;
+  --section-background: #ececec;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  background-color: var(--main-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* Start nav */
+.header {
+  
+  position: relative;
+  
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+.header .logo {
+  color: var(--main-color);
+  font-size: 26px;
+  font-weight: bold;
+  height: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .header .logo {
+    width: 100%;
+    height: 50px;
+  }
+}
+.header .main-nav {
+  display: flex;
+}
+@media (max-width: 767px) {
+  .header .main-nav {
+    margin: auto;
+  }
+}
+
+.header .main-nav > li > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 72px;
+  position: relative;
+  color: #fff;
+  padding: 0 30px;
+  overflow: hidden;
+  font-size: 18px;
+  transition: var(--main-transition);
+}
+@media (max-width: 767px) {
+  .header .main-nav > li > a {
+    padding: 10px;
+    font-size: 14px;
+    height: 40px;
+  }
+}
+.header .main-nav > li > a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: var(--main-color-alt);
+  bottom: 0;
+  left: -100%;
+  transition: 0.8s;
+}
+
+.header .main-nav > li > a:hover::before {
+  left: 0;
+}
+@media (max-width: 767px) {
+  .header  {
+    flex-direction: column;
+    gap: 0;
+    padding: 5px;
+  }
+}
+.header .image img {
+  max-width: 100%;
+}
+@media (max-width: 991px) {
+  .header .image {
+    display: none;
+  }
+}
+.header .links {
+  min-width: 250px;
+  flex: 1;
+}
+.header .links li {
+  position: relative;
+}
+.header .links li:not(:last-child) {
+  border-bottom: 1px solid #e9e6e6;
+}
+@media (max-width: 767px) {
+  .header .links:first-of-type li:last-child {
+    border-bottom: 1px solid #e9e6e6;
+  }
+}
+.header .links li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  
+  z-index: -1;
+  transition: 0.8s;
+}
+.header .links li:hover::before {
+  width: 100%;
+}
+
+
+/* End nav */
+
+.cantacthead
+{
+  color: #6363C8;
+}
+.contact-container {
+  display: flex;
+  
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.contact-info {
+  padding: 40px;
+  
+  color: #ffffff;
+}
+
+.contact-info img.illustration {
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.contact-form {
+  
+  color: #ffffff;
+  width: 400px;
+}
+
+.contact-form h2 {
+  margin: 0 0 10px;
+}
+
+.contact-form p {
+  margin: 0 0 20px;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 0 solid;
+  border-bottom: 2px solid #fff;
+  background-color: var(--main-color);
+  color: #ffffff;
+}
+
+
+.contact-form button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.contact-form button:hover {
+  background-color: #0056b3;
+}
+/* footer */
+.footer {
+  font-size: 15px;
+  font-weight: 100;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer h5 {
+  color: var(--main-color-alt);
+}
+
+.footer form .form-control {
+  background-color: #34495e;
+  border: none;
+  color: #fff;
+}
+
+.footer form .form-control::placeholder {
+  color: #b0b3b8;
+}
+
+.footer form .btn-primary {
+  background-color: var(--main-color-alt);
+  border: none;
+}
